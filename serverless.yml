@@ -1,0 +1,23 @@
+service: UpToDiscord
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-2
+  timeout: 30
+
+functions:
+  receiveWebhook:
+    handler: UpToDiscord.receiveWebhook
+    environment:
+      UP_API_KEY: ${env:UP_API_KEY}
+      DISCORD_WEBHOOK_ID: ${env:DISCORD_WEBHOOK_ID}
+      DISCORD_WEBHOOK_SECRET: ${env:DISCORD_WEBHOOK_SECRET}
+    events:
+     - http:
+         path: webhook
+         method: post
+
+plugins:
+  - serverless-offline
+  - ./.serverless_plugins/up
