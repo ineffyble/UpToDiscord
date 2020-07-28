@@ -2,6 +2,8 @@
 
 **UpToDiscord** automatically posts new Up transactions to a designated Discord channel.
 
+![Example screenshot showing UpToDiscord in action](/docs/example.png)
+
 ## Important
 
 This is provided with no guarantees. It should not be considered production-ready.
