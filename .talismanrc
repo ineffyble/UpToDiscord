@@ -1,0 +1,5 @@
+fileignoreconfig:
+- filename: yarn.lock
+  checksum: 183d8ae93bbdcbdf3048863b8794de191055b4ea6e9212954723fc81d9b2cc4f
+  ignore_detectors: []
+scopeconfig: []
