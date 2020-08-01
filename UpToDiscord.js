@@ -1,7 +1,9 @@
 'use strict';
 
+const util = require('util');
 const upClient = require('./up');
 const Discord = require('discord.js');
+const GoogleImageSearch = util.promisify(require('g-i-s'));
 
 const DISCORD_WEBHOOK_ID = process.env.DISCORD_WEBHOOK_ID;
 const DISCORD_WEBHOOK_SECRET = process.env.DISCORD_WEBHOOK_SECRET;
@@ -19,10 +21,13 @@ const getTransactionIdFromWebhook = (webhook) => {
   return webhook["data"]["relationships"]["transaction"]["data"]["id"];
 }
 
-const createDiscordTransactionEmbed = (transaction) => {
+const createDiscordTransactionEmbed = async (transaction) => {
+  const thumbnailSearch = await GoogleImageSearch(`${transaction["data"]["attributes"]["description"]} logo`);
+  const thumbnail = thumbnailSearch[0]["url"];
   const embed = new Discord.MessageEmbed()
     .setColor('#ff7a64')
-    .setTitle('New transaction');
+    .setTitle('New transaction')
+    .setThumbnail(thumbnail);
   const trans = [
       ['Description', transaction["data"]["attributes"]["description"]],
       ['Amount',  '$' + parseInt(transaction["data"]["attributes"]["amount"]["value"])],
@@ -63,7 +68,7 @@ module.exports.receiveWebhook = async event => {
         console.log(transaction);
       }
       if (parseInt(transaction["data"]["attributes"]["amount"]["value"]) !== 0) {
-        await sendDiscordMessage(createDiscordTransactionEmbed(transaction));
+        await sendDiscordMessage(await createDiscordTransactionEmbed(transaction));
       }
       break;
     default:
