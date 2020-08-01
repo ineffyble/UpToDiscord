@@ -59,7 +59,9 @@ module.exports.receiveWebhook = async event => {
       const transactionId = getTransactionIdFromWebhook(webhook);
       const transactionData = await getTransactionDetails(transactionId);
       const transaction = JSON.parse(transactionData.body);
-      await sendDiscordMessage(createDiscordTransactionEmbed(transaction));
+      if (parseInt(transaction["data"]["attributes"]["amount"]["value"]) !== 0) {
+        await sendDiscordMessage(createDiscordTransactionEmbed(transaction));
+      }
       break;
     default:
       break;
