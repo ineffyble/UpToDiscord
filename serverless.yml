@@ -13,6 +13,7 @@ functions:
       UP_API_KEY: ${env:UP_API_KEY}
       DISCORD_WEBHOOK_ID: ${env:DISCORD_WEBHOOK_ID}
       DISCORD_WEBHOOK_SECRET: ${env:DISCORD_WEBHOOK_SECRET}
+      DEBUG: ${env:DEBUG, false}
     events:
      - http:
          path: webhook

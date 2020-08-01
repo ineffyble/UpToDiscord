@@ -43,6 +43,8 @@ the webhook ID (first part of the webhook URL after `https://discordapp.com/api/
 export UP_API_KEY=up:yeah:xxx
 export DISCORD_WEBHOOK_ID=1234
 export DISCORD_WEBHOOK_SECRET=abcd
+# If you want full transaction details in Lambda logs for debugging
+# export DEBUG=true
 ```
 5. Deploy with Serverless Framework:
 ```sh
