@@ -1,6 +1,6 @@
 {
   "name": "uptodiscord",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "AWS Lambda function that receives Up webhooks and sends transaction details to Discord",
   "main": "UpToDiscord.js",
   "license": "MIT",
