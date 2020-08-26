@@ -6,7 +6,7 @@
   "license": "MIT",
   "devDependencies": {
     "serverless": "^1.80.0",
-    "serverless-offline": "^6.5.0"
+    "serverless-offline": "^6.6.0"
   },
   "dependencies": {
     "discord.js": "^12.3.1",
