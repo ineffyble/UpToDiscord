@@ -1,0 +1,46 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "19:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: serverless
+    versions:
+    - 2.21.1
+    - 2.22.0
+    - 2.23.0
+    - 2.25.0
+    - 2.25.1
+    - 2.25.2
+    - 2.26.0
+    - 2.27.1
+    - 2.28.0
+    - 2.28.1
+    - 2.28.6
+    - 2.28.7
+    - 2.29.0
+    - 2.30.2
+    - 2.30.3
+    - 2.31.0
+    - 2.32.0
+    - 2.32.1
+    - 2.33.0
+    - 2.33.1
+    - 2.34.0
+    - 2.35.0
+    - 2.37.1
+    - 2.37.2
+  - dependency-name: discord.js
+    versions:
+    - 12.5.1
+    - 12.5.2
+  - dependency-name: serverless-offline
+    versions:
+    - 6.8.0
+    - 6.9.0
+  - dependency-name: got
+    versions:
+    - 11.8.1
